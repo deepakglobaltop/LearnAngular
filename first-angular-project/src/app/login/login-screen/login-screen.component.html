@@ -1,0 +1,10 @@
+<p>login-screen works!</p>
+
+
+<label  for="fullName">User ID  </label>
+<input [(ngModel)]="userId"  type="text"/>  
+<button (click)="validateUser()" > Validate</button> <p>{{userId}}</p>
+<div *ngIf="validate" >
+<p> Welcome !! You have been autheticated successfully  {{userId}}</p>
+</div>
+

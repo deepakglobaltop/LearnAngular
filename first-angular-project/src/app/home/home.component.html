@@ -1,0 +1,44 @@
+<app-commonshell >
+  <div body="body">
+
+    <p>Enter the data to add new Topic</p>
+    <form >
+      <input  placeholder="id"  type="text" [value]="topicId" name="id"  >
+      <input placeholder="topicName" [(ngModel)]="topicName" type="text" name="tName" >
+      <input type = "submit" (click)="addTopic()"  value = "submit">
+    </form>
+    <p>The following topics are available</p>
+    <div style="margin-left: 10px;" *ngFor="let topic of topics">
+      <p> <b> Id: </b>  {{topic.id}} </p>
+      <p> Name:  {{topic.name}} </p>
+    </div>
+
+<p>I am inside home component!</p>
+
+<p>Today date is {{ todayDate}}</p>
+
+<p  class="bold">{{employee.name}}</p>
+<button (click)="phoneSection()">Show/Hide Phone</button>
+<div *ngIf="!phoneCollapsed" >
+<p   class="bold">Phone </p>
+<div class="border">
+    <p *ngFor="let phoneNumber of employee.phone" >{{phoneNumber}}</p>
+</div>
+</div>
+
+<div class="card" style="width: 18rem;">
+   
+    <div class="card-body" *ngFor="let task of allTask[currentPageNumber]; index as i ">
+      <h5 class="card-title" [ngClass]="{'highestPriority':task.isHighestPriority}">Task Name {{task.name}} </h5>
+      <p class="card-text" appHighLight > Priority {{task.priority}}  </p>
+      <p class="card-text" > Description {{task.desc|truncatePipe}}  </p>
+      <a href="#" class="btn btn-primary">full desc</a>
+      <button (click)="markUrgent(i)">Mark Urgent</button>
+    </div>
+  
+</div>
+
+<app-task-todo #taskToDo   [numberOfPages]="numberOfPages" (pageNumberClicked)="updatePageNumber($event)" ></app-task-todo> 
+<router-outlet ></router-outlet>
+</div>
+</app-commonshell>

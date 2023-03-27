@@ -1,0 +1,11 @@
+<p >task-todo works!</p>
+
+<ul class="pagination">
+   
+    <li *ngFor="let count of pages ;index as i"  class="page-item">
+        <a class="page-link"  (click)="pageNumberClick(i)" >
+            {{i+1}}</a>
+        </li>
+   
+   
+  </ul>
